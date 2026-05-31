@@ -49,3 +49,8 @@ data/pending-reviews.json
 
 # misc
 .vercel
+
+# Claude Code internal files
+CLAUDE.md
+AGENTS.md
+.claude/
