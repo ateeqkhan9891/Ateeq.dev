@@ -8,7 +8,6 @@ import { GithubIcon } from "@/components/ui/icons";
 import { Project } from "@/data/projects";
 import ProjectGallery from "@/components/ui/ProjectGallery";
 
-/* ---- per-project accent palette ---------------------------------- */
 const PALETTE: Record<string, {
   dot: string; text: string; glow: string; via: string;
 }> = {
@@ -26,19 +25,16 @@ function getPalette(categories: string[]) {
   return PALETTE["Web Development"];
 }
 
-/* ---- tech pill colors -------------------------------------------- */
 const TECH_COLOR: Record<string, string> = {
   "Next.js": "#f0f6ff", "TypeScript": "#22d3ee", "Python": "#60a5fa", "FastAPI": "#34d399", "PostgreSQL": "#38bdf8", "Supabase": "#4ade80", "OpenAI": "#c084fc", "Groq": "#a78bfa", "Stripe": "#818cf8", "PyTorch": "#fb923c", "Scikit-learn": "#fbbf24", "Docker": "#60a5fa", "Tailwind CSS": "#22d3ee", "Framer Motion": "#e879f9", "React": "#67e8f9", "SQLAlchemy": "#86efac", "Pydantic": "#6ee7b7", "JWT": "#fde68a", "Pandas": "#93c5fd", "NumPy": "#bfdbfe", "Matplotlib": "#a5f3fc", "NLTK": "#fca5a5", "XGBoost": "#fdba74", "WordPress": "#c4b5fd", "PHP": "#a5b4fc", "Elementor": "#86efac", "Vercel": "#f0f6ff",
 };
 
-/* ---- status ------------------------------------------------------- */
 const STATUS_STYLE = {
   "in-progress": { t: "In Progress", c: "text-amber-400 border-amber-400/30 bg-amber-400/[0.07]" },
   live:          { t: "Live",         c: "text-emerald-400 border-emerald-400/30 bg-emerald-400/[0.07]" },
   completed:     { t: "Completed",    c: "text-slate-400 border-slate-400/30 bg-slate-400/[0.07]" },
 };
 
-/* ---- animation helper -------------------------------------------- */
 function FadeUp({ children, delay = 0, className = "" }: {
   children: React.ReactNode; delay?: number; className?: string;
 }) {
@@ -67,7 +63,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ================================================================== */
 interface Props { project: Project }
 
 export default function ProjectDetail({ project }: Props) {
@@ -82,12 +77,10 @@ export default function ProjectDetail({ project }: Props) {
   return (
     <article>
 
-      {/* ============================================================
-          HERO
-      ============================================================ */}
+
       <div ref={heroRef} className="relative min-h-[85vh] flex flex-col justify-end overflow-hidden">
 
-        {/* Parallax background */}
+
         <motion.div style={{ y: heroY }} className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40" />
           <div className="absolute inset-0"
@@ -101,10 +94,10 @@ export default function ProjectDetail({ project }: Props) {
           />
         </motion.div>
 
-        {/* Scrollable content */}
+
         <motion.div style={{ opacity: heroOp }} className="relative z-10 wrap pb-20 pt-40">
 
-          {/* Breadcrumb */}
+
           <motion.div initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }} className="mb-12">
             <Link href="/projects"
@@ -114,7 +107,7 @@ export default function ProjectDetail({ project }: Props) {
             </Link>
           </motion.div>
 
-          {/* Category + status */}
+
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.08 }}
             className="flex flex-wrap items-center gap-3 mb-8">
@@ -133,7 +126,7 @@ export default function ProjectDetail({ project }: Props) {
             <span className="text-[11px] text-slate-600">{project.year}</span>
           </motion.div>
 
-          {/* Giant title */}
+
           <motion.h1
             initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.13, ease: [0.22, 1, 0.36, 1] }}
@@ -143,7 +136,7 @@ export default function ProjectDetail({ project }: Props) {
             {project.title}
           </motion.h1>
 
-          {/* Tagline + CTA row */}
+
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.22 }}
             className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 max-w-5xl">
@@ -169,18 +162,16 @@ export default function ProjectDetail({ project }: Props) {
           </motion.div>
         </motion.div>
 
-        {/* Hero bottom fade */}
+
         <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
           style={{ background: "linear-gradient(to top, #060912, transparent)" }}
         />
       </div>
 
-      {/* ============================================================
-          BODY
-      ============================================================ */}
+
       <div className="wrap pb-32">
 
-        {/* ── Gallery ──────────────────────────────────────────── */}
+
         <div className="mb-14 -mt-6">
           <ProjectGallery
             cover={project.cover}
@@ -191,7 +182,7 @@ export default function ProjectDetail({ project }: Props) {
           />
         </div>
 
-        {/* ── Quick stats strip ────────────────────────────────── */}
+
         <FadeUp>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/[0.04] rounded-2xl overflow-hidden mb-24 border border-white/[0.04]">
             {[
@@ -208,7 +199,7 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         </FadeUp>
 
-        {/* ── Overview ─────────────────────────────────────────── */}
+
         <FadeUp>
           <div className="mb-24">
             <SectionLabel>Overview</SectionLabel>
@@ -216,7 +207,7 @@ export default function ProjectDetail({ project }: Props) {
               <p className="text-slate-300 leading-[1.95] text-base lg:text-lg">
                 {project.overview}
               </p>
-              {/* Accent card */}
+
               <div className="rounded-2xl p-6 border"
                 style={{ background: `${pal.dot}0c`, borderColor: `${pal.dot}28` }}>
                 <div className="w-8 h-0.5 mb-4 rounded-full" style={{ background: pal.dot }} />
@@ -233,7 +224,7 @@ export default function ProjectDetail({ project }: Props) {
 
         <Rule />
 
-        {/* ── Problem / Solution ───────────────────────────────── */}
+
         <div className="mb-24">
           <FadeUp><SectionLabel>Challenge & Approach</SectionLabel></FadeUp>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -263,7 +254,7 @@ export default function ProjectDetail({ project }: Props) {
 
         <Rule />
 
-        {/* ── Key Features ─────────────────────────────────────── */}
+
         <div className="mb-24">
           <FadeUp><SectionLabel>Key Features</SectionLabel></FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -285,7 +276,7 @@ export default function ProjectDetail({ project }: Props) {
 
         <Rule />
 
-        {/* ── Tech Stack ───────────────────────────────────────── */}
+
         <div className="mb-24">
           <FadeUp><SectionLabel>Technologies Used</SectionLabel></FadeUp>
           <FadeUp delay={0.05}>
@@ -311,7 +302,7 @@ export default function ProjectDetail({ project }: Props) {
 
         <Rule />
 
-        {/* ── Results ──────────────────────────────────────────── */}
+
         <div className="mb-24">
           <FadeUp><SectionLabel>Results & Impact</SectionLabel></FadeUp>
           <div className="space-y-0 divide-y divide-white/[0.04]">
@@ -336,14 +327,14 @@ export default function ProjectDetail({ project }: Props) {
 
         <Rule />
 
-        {/* ── Lessons Learned ──────────────────────────────────── */}
+
         <div className="mb-24">
           <FadeUp><SectionLabel>Lessons Learned</SectionLabel></FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {project.lessons.map((l, i) => (
               <FadeUp key={l} delay={i * 0.08}>
                 <div className="relative h-full p-6 rounded-2xl border border-white/[0.05] bg-[#0b1120] overflow-hidden hover:border-white/[0.09] transition-colors group">
-                  {/* Ghost number watermark */}
+
                   <div className="absolute -bottom-4 -right-2 font-black leading-none select-none pointer-events-none"
                     style={{ fontSize: "7rem", color: `${pal.dot}07` }}>
                     {i + 1}
@@ -360,7 +351,7 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         </div>
 
-        {/* ── Bottom CTA ───────────────────────────────────────── */}
+
         <FadeUp>
           <div className="relative rounded-2xl overflow-hidden border border-white/[0.07]">
             <div className="absolute inset-0 bg-[#0b1120]" />

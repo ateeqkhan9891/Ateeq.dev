@@ -13,7 +13,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-/* ── Process steps ─────────────────────────────────────────────── */
 const STEPS = [
   {
     n:    "01",
@@ -57,7 +56,6 @@ const STEPS = [
   },
 ];
 
-/* ── Working principles ─────────────────────────────────────────── */
 const PRINCIPLES = [
   {
     icon:  FileText,
@@ -85,7 +83,6 @@ const PRINCIPLES = [
   },
 ];
 
-/* ── Step card ──────────────────────────────────────────────────── */
 function StepCard({
   step,
   index,
@@ -101,7 +98,7 @@ function StepCard({
 
   return (
     <div ref={ref} className="relative flex flex-col">
-      {/* Connector line between cards (desktop only) */}
+
       {!isLast && (
         <div className="hidden lg:block absolute top-[2.25rem] left-full w-full h-px z-0"
           style={{ width: "calc(100% - 4.5rem)" }}>
@@ -114,7 +111,7 @@ function StepCard({
               background: `linear-gradient(90deg, ${step.accent}60, ${STEPS[index + 1].accent}30)`,
             }}
           />
-          {/* Arrow head */}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
@@ -129,7 +126,7 @@ function StepCard({
         </div>
       )}
 
-      {/* Card */}
+
       <motion.div
         initial={{ opacity: 0, y: 28 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -146,12 +143,12 @@ function StepCard({
           (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)";
         }}
       >
-        {/* Top accent line */}
+
         <div className="absolute top-0 inset-x-0 h-px rounded-t-2xl"
           style={{ background: `linear-gradient(90deg, ${step.accent}60, transparent)` }}
         />
 
-        {/* Number + Icon row */}
+
         <div className="flex items-center justify-between mb-5">
           <span
             className="text-[2.6rem] font-black leading-none tracking-tight select-none"
@@ -167,7 +164,7 @@ function StepCard({
           </div>
         </div>
 
-        {/* Text */}
+
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.13em] mb-1.5"
             style={{ color: step.accent }}>
@@ -181,7 +178,7 @@ function StepCard({
           </p>
         </div>
 
-        {/* Step indicator dot */}
+
         <div className="mt-5 pt-4 border-t border-white/[0.05] flex items-center gap-2">
           <div className="w-2 h-2 rounded-full" style={{ background: step.accent }} />
           <span className="text-[10px] text-slate-700 font-mono tracking-widest">STEP {step.n}</span>
@@ -191,7 +188,6 @@ function StepCard({
   );
 }
 
-/* ── Principle card ─────────────────────────────────────────────── */
 function PrincipleCard({
   p,
   i,
@@ -211,7 +207,7 @@ function PrincipleCard({
       transition={{ duration: 0.45, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className="group flex gap-4 p-5 rounded-2xl border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.09] transition-all duration-250"
     >
-      {/* Icon */}
+
       <div
         className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
         style={{ background: `${p.accent}12`, border: `1px solid ${p.accent}25` }}
@@ -219,7 +215,7 @@ function PrincipleCard({
         <Icon size={16} style={{ color: p.accent }} />
       </div>
 
-      {/* Text */}
+
       <div>
         <h4 className="text-sm font-semibold text-slate-200 mb-1.5 group-hover:text-white transition-colors leading-snug">
           {p.title}
@@ -232,9 +228,6 @@ function PrincipleCard({
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   MAIN EXPORT
-═══════════════════════════════════════════════════════════════════ */
 export default function HowIWork() {
   const headerRef = useRef(null);
   const inView    = useInView(headerRef, { once: true, margin: "-80px" });
@@ -243,7 +236,7 @@ export default function HowIWork() {
     <section className="section border-t border-white/[0.05]" style={{ background: "#070c18" }}>
       <div className="wrap">
 
-        {/* ── Header ────────────────────────────────────────── */}
+
         <div ref={headerRef} className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 mb-16 items-end">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -270,7 +263,7 @@ export default function HowIWork() {
           </motion.p>
         </div>
 
-        {/* ── Step cards ────────────────────────────────────── */}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {STEPS.map((step, i) => (
             <StepCard
@@ -282,10 +275,10 @@ export default function HowIWork() {
           ))}
         </div>
 
-        {/* ── Divider ───────────────────────────────────────── */}
+
         <div className="h-px bg-white/[0.05] mb-10" />
 
-        {/* ── Principles ────────────────────────────────────── */}
+
         <div className="mb-6">
           <motion.p
             initial={{ opacity: 0 }}
@@ -303,7 +296,7 @@ export default function HowIWork() {
           </div>
         </div>
 
-        {/* ── Bottom quote ──────────────────────────────────── */}
+
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

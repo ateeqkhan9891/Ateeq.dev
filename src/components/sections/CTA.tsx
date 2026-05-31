@@ -9,17 +9,17 @@ export default function CTA() {
   return (
     <section className="relative border-t border-white/[0.05] overflow-hidden">
 
-      {/* Background gradient */}
+
       <div className="absolute inset-0 bg-gradient-to-b from-[#060912] via-[#070e1f] to-[#060912]" />
       <div className="absolute inset-0 bg-gradient-radial from-cyan-500/[0.06] via-transparent to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-cyan-500/50 to-transparent" />
 
-      {/* Glow orb */}
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-cyan-500/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-10 py-28 text-center z-10">
 
-        {/* Availability pill */}
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default function CTA() {
           Open to new projects, 2025
         </motion.div>
 
-        {/* Headline */}
+
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function CTA() {
           <span className="gradient-text">in mind?</span>
         </motion.h2>
 
-        {/* Sub */}
+
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function CTA() {
           about it.
         </motion.p>
 
-        {/* CTAs */}
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export default function CTA() {
           </Link>
         </motion.div>
 
-        {/* Divider */}
+
         <div className="border-t border-white/[0.05] pt-10">
           <motion.div
             initial={{ opacity: 0 }}

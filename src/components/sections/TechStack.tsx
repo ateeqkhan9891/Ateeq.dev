@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -80,7 +80,7 @@ export default function TechStack() {
     <section className="section border-t border-white/[0.05]">
       <div className="wrap">
 
-        {/* Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        {/* Grid */}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {GROUPS.map((g, gi) => (
             <motion.div
@@ -112,7 +112,7 @@ export default function TechStack() {
               transition={{ duration: 0.45, delay: gi * 0.07 }}
               className="rounded-2xl border border-white/[0.06] hover:border-white/[0.1] bg-[#0b1120] p-6 transition-colors duration-300"
             >
-              {/* Group header */}
+
               <div className="flex items-center gap-3 mb-5">
                 <div
                   className="w-2.5 h-2.5 rounded-full"
@@ -123,7 +123,7 @@ export default function TechStack() {
                 </span>
               </div>
 
-              {/* Skills list */}
+
               <div className="space-y-2.5">
                 {g.skills.map((sk, si) => (
                   <motion.div

@@ -20,7 +20,7 @@ export default function ProjectsContent() {
   return (
     <div className="pt-32 pb-24">
       <div className="wrap">
-        {/* Header */}
+
         <div className="mb-14">
           <span className="text-xs font-semibold uppercase tracking-widest text-cyan-400 mb-3 block">
             Portfolio
@@ -34,7 +34,7 @@ export default function ProjectsContent() {
           </p>
         </div>
 
-        {/* Filter tabs */}
+
         <div className="flex flex-wrap gap-2 mb-10">
           {categories.map((cat) => (
             <button
@@ -51,7 +51,7 @@ export default function ProjectsContent() {
           ))}
         </div>
 
-        {/* Grid */}
+
         <AnimatePresence mode="wait">
           <motion.div
             key={active}

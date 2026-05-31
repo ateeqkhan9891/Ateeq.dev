@@ -73,7 +73,7 @@ export default function ContactContent() {
   return (
     <div className="pt-32 pb-24">
       <div className="wrap">
-        {/* Header */}
+
         <div className="mb-14">
           <span className="text-xs font-semibold uppercase tracking-widest text-cyan-400 mb-3 block">
             Contact
@@ -88,7 +88,7 @@ export default function ContactContent() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-          {/* Form */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -218,14 +218,14 @@ export default function ContactContent() {
             )}
           </motion.div>
 
-          {/* Sidebar */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-2 space-y-5"
           >
-            {/* Profile photo */}
+
             <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] aspect-[4/3]"
               style={{ background: "#070c18" }}>
               <Image
@@ -235,17 +235,17 @@ export default function ContactContent() {
                 sizes="(max-width:768px) 100vw, 420px"
                 className="object-cover object-center"
               />
-              {/* Bottom fade */}
+
               <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none"
                 style={{ background: "linear-gradient(to top, #060912 0%, transparent 100%)" }} />
-              {/* Availability chip */}
+
               <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/25 bg-[#060912]/80 backdrop-blur-sm text-[11px] font-semibold text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 Available for new projects
               </div>
             </div>
 
-            {/* Contact info */}
+
             <div className="glass rounded-xl p-6 space-y-4">
               <h3 className="text-sm font-semibold text-white mb-4">
                 Direct Contact
@@ -276,7 +276,7 @@ export default function ContactContent() {
               />
             </div>
 
-            {/* Availability */}
+
             <div className="glass rounded-xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -290,7 +290,7 @@ export default function ContactContent() {
               </p>
             </div>
 
-            {/* Response time */}
+
             <div className="glass rounded-xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 <Clock size={15} className="text-cyan-400" />

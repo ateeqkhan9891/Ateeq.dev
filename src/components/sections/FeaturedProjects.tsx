@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { featuredProjects, projects } from "@/data/projects";
 
-/* -- gradient map per project ------------------------------- */
 const GRADIENTS: Record<string, string> = {
   "kredo-ai":           "from-violet-600/20 via-cyan-600/10 to-transparent", "miami-aesthetic-care": "from-pink-600/15 via-rose-600/8 to-transparent", "dr-zulqarnain":        "from-emerald-600/15 via-teal-600/8 to-transparent",
 };
@@ -24,7 +23,6 @@ const STATUS_LABELS: Record<string, { label: string; color: string }> = {
   completed:     { label: "Completed",   color: "text-slate-400 bg-slate-400/10 border-slate-400/20" },
 };
 
-/* -- Small project card (sidebar) --------------------------- */
 function SmallCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
   return (
     <motion.div
@@ -37,12 +35,12 @@ function SmallCard({ project, index }: { project: (typeof projects)[0]; index: n
         href={`/projects/${project.slug}`}
         className="group flex items-start gap-4 p-4 rounded-xl border border-white/[0.05] hover:border-white/[0.1] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-250"
       >
-        {/* Icon box */}
+
         <div className="w-10 h-10 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center shrink-0 group-hover:border-cyan-500/30 transition-colors">
           <div className="w-4 h-4 rounded-sm bg-gradient-to-br from-cyan-400/60 to-blue-500/60" />
         </div>
 
-        {/* Text */}
+
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2">
             <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors truncate">
@@ -64,10 +62,9 @@ function SmallCard({ project, index }: { project: (typeof projects)[0]; index: n
   );
 }
 
-/* ----------------------------------------------------------- */
 export default function FeaturedProjects() {
-  const hero   = featuredProjects[0]; // MyamiCV AI
-  const rest   = featuredProjects.slice(1); // Miami + Dr Z
+  const hero   = featuredProjects[0];
+  const rest   = featuredProjects.slice(1);
   const others = projects.filter((p) => !p.featured).slice(0, 3);
 
   const heroStatus = STATUS_LABELS[hero.status];
@@ -76,7 +73,7 @@ export default function FeaturedProjects() {
     <section className="section">
       <div className="wrap">
 
-      {/* -- Section header ----------------------------- */}
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -102,10 +99,10 @@ export default function FeaturedProjects() {
 
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-6">
 
-        {/* -- Left column -------------------------------- */}
+
         <div className="flex flex-col gap-6">
 
-          {/* -- Hero featured card ---------------------- */}
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,10 +113,10 @@ export default function FeaturedProjects() {
               href={`/projects/${hero.slug}`}
               className={`group relative block rounded-2xl border border-white/[0.07] hover:border-violet-500/30 bg-[#0b1120] overflow-hidden transition-all duration-350 hover:shadow-card-hover`}
             >
-              {/* gradient overlay */}
+
               <div className={`absolute inset-0 bg-gradient-to-br ${GRADIENTS[hero.slug] ?? "from-cyan-600/10 to-transparent"} transition-opacity duration-500`} />
 
-              {/* grid pattern inside card */}
+
               <div className="absolute inset-0 bg-dot-pattern bg-dot opacity-40" />
 
               <div className="relative p-8 lg:p-10">
@@ -136,10 +133,10 @@ export default function FeaturedProjects() {
                   </span>
                 </div>
 
-                {/* Project visual area */}
+
                 <div className="relative h-40 lg:h-52 rounded-xl border border-white/[0.06] bg-[#070c18] overflow-hidden mb-8 flex items-center justify-center">
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-cyan-600/5" />
-                  {/* Mock dashboard UI */}
+
                   <div className="relative grid grid-cols-3 gap-2 p-4 w-full max-w-sm opacity-70">
                     {[...Array(3)].map((_, i) => (
                       <div key={i} className="h-8 rounded bg-white/[0.06] border border-white/[0.08]" />
@@ -179,7 +176,7 @@ export default function FeaturedProjects() {
             </Link>
           </motion.div>
 
-          {/* -- Two smaller featured cards --------------- */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {rest.map((p, i) => {
               const st = STATUS_LABELS[p.status];
@@ -210,7 +207,7 @@ export default function FeaturedProjects() {
                         </span>
                       </div>
 
-                      {/* mini visual */}
+
                       <div className="h-28 rounded-lg border border-white/[0.06] bg-[#070c18] mb-5 overflow-hidden flex items-center justify-center">
                         <div className="w-16 h-16 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center">
                           <Sparkles size={20} className={ICON_COLORS[p.slug] ?? "text-cyan-400"} />
@@ -243,7 +240,7 @@ export default function FeaturedProjects() {
           </div>
         </div>
 
-        {/* -- Right column: other projects list ---------- */}
+
         <div className="flex flex-col gap-3">
           <div className="mb-4">
             <span className="text-xs font-semibold uppercase tracking-widest text-slate-600">

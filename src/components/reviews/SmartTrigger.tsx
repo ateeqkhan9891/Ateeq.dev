@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,13 +19,11 @@ export default function SmartFeedbackTrigger() {
   };
 
   useEffect(() => {
-    // Check if already dismissed in this session
+
     if (typeof window !== "undefined" && sessionStorage.getItem("feedback_dismissed")) return;
 
-    // Time trigger: 60 seconds
     timerRef.current = setTimeout(trigger, 60_000);
 
-    // Scroll trigger: 70% of page
     const handleScroll = () => {
       const scrollPct =
         (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
@@ -37,7 +35,7 @@ export default function SmartFeedbackTrigger() {
       window.removeEventListener("scroll", handleScroll);
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [dismissed]);
 
   const dismiss = () => {

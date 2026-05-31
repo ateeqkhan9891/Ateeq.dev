@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -8,7 +8,7 @@ export default function AdminLogin() {
 
   const login = (e: React.FormEvent) => {
     e.preventDefault();
-    // Store in sessionStorage for simplicity
+
     sessionStorage.setItem("admin_secret", password);
     router.push("/admin/reviews");
   };

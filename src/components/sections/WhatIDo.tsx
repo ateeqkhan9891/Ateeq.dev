@@ -72,7 +72,7 @@ export default function WhatIDo() {
     <section className="section border-t border-white/[0.05]" style={{ background: "#070c18" }}>
       <div className="wrap">
 
-        {/* Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function WhatIDo() {
           </p>
         </motion.div>
 
-        {/* Grid */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {AREAS.map((area, i) => (
             <motion.div
@@ -116,7 +116,7 @@ export default function WhatIDo() {
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)";
                 }}
               >
-                {/* Number + arrow */}
+
                 <div className="flex items-center justify-between mb-5">
                   <span
                     className="text-xs font-bold font-mono tracking-widest"
@@ -130,17 +130,17 @@ export default function WhatIDo() {
                   />
                 </div>
 
-                {/* Title */}
+
                 <h3 className="text-base font-bold text-white mb-3 leading-snug group-hover:text-slate-100 transition-colors">
                   {area.title}
                 </h3>
 
-                {/* Desc */}
+
                 <p className="text-sm text-slate-600 leading-relaxed mb-5">
                   {area.desc}
                 </p>
 
-                {/* Tags */}
+
                 <div className="flex flex-wrap gap-1.5">
                   {area.tags.map((tag) => (
                     <span

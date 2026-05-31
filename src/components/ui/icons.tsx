@@ -1,4 +1,4 @@
-// Custom SVG icons for social media (removed from lucide-react v1.x)
+﻿
 import { SVGProps } from "react";
 
 export function GithubIcon(props: SVGProps<SVGSVGElement>) {

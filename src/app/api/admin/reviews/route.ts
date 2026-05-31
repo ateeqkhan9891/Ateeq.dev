@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { readAll, isSupabaseReady } from "@/lib/local-reviews";
 
 function isAdmin(req: NextRequest): boolean {
@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   const statusFilter = searchParams.get("status") ?? "all";
   const search       = (searchParams.get("search") ?? "").toLowerCase();
 
-  /* ── Supabase path ─────────────────────────────────────── */
+
   if (isSupabaseReady()) {
     const { supabaseAdmin } = await import("@/lib/supabase");
     let query = supabaseAdmin
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ reviews: data ?? [] });
   }
 
-  /* ── Local file path ───────────────────────────────────── */
+
   let reviews = readAll();
 
   if (statusFilter !== "all")

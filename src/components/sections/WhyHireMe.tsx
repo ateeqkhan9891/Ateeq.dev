@@ -45,7 +45,7 @@ export default function WhyHireMe() {
     >
       <div className="wrap">
 
-        {/* Header */}
+
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export default function WhyHireMe() {
           </motion.p>
         </div>
 
-        {/* Reasons grid */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04] rounded-2xl overflow-hidden">
           {REASONS.map((r, i) => (
             <motion.div
@@ -84,28 +84,28 @@ export default function WhyHireMe() {
               transition={{ duration: 0.4, delay: i * 0.07 }}
               className="group relative bg-[#070c18] hover:bg-[#0b1120] p-7 transition-colors duration-250 overflow-hidden"
             >
-              {/* Top-left number */}
+
               <div className="text-xs font-bold font-mono tracking-widest text-slate-700 group-hover:text-cyan-500/60 transition-colors mb-4">
                 {r.n}
               </div>
 
-              {/* Title */}
+
               <h3 className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors mb-3 leading-snug">
                 {r.title}
               </h3>
 
-              {/* Body */}
+
               <p className="text-xs text-slate-600 leading-relaxed group-hover:text-slate-500 transition-colors">
                 {r.body}
               </p>
 
-              {/* Hover accent line */}
+
               <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-cyan-500/0 via-cyan-500/40 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA row */}
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

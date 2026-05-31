@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -19,7 +19,6 @@ import {
   currentlyBuilding, engineeringPrinciples,
 } from "@/data/resume";
 
-/* ── WhatsApp icon ─────────────────────────────────────────── */
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -28,7 +27,6 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
   );
 }
 
-/* ── Animation helper ──────────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
@@ -36,7 +34,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] },
 });
 
-/* ── Status badge ──────────────────────────────────────────── */
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, string> = {
     Live:         "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
@@ -50,10 +47,8 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
-/* ── Section divider ───────────────────────────────────────── */
 function Divider() { return <div className="h-px bg-white/[0.05] my-10" />; }
 
-/* ── Section label ─────────────────────────────────────────── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-7">
@@ -63,7 +58,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ── Profile avatar ────────────────────────────────────────── */
 function ProfileAvatar() {
   const [imgError, setImgError] = useState(false);
   return (
@@ -85,15 +79,13 @@ function ProfileAvatar() {
   );
 }
 
-/* ── Principle icon map ────────────────────────────────────── */
 const PRINCIPLE_ICONS = [Users, RefreshCw, Target, Layers, Zap, Shield];
 
-/* ═══════════════════════════════════════════════════════════ */
 export default function ResumeContent() {
   return (
     <div className="min-h-screen pt-20 pb-24" style={{ background: "#060912" }}>
 
-      {/* Background orbs */}
+
       <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.03] blur-[130px]" style={{ background: "#06b6d4" }} />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.025] blur-[110px]" style={{ background: "#8b5cf6" }} />
@@ -102,9 +94,7 @@ export default function ResumeContent() {
       <div className="wrap relative">
         <div className="flex flex-col lg:flex-row gap-8 xl:gap-12 items-start">
 
-          {/* ====================================================
-              SIDEBAR
-          ==================================================== */}
+
           <motion.aside
             {...fadeUp(0)}
             className="w-full lg:w-[272px] xl:w-[290px] shrink-0 lg:sticky lg:top-24"
@@ -113,7 +103,7 @@ export default function ResumeContent() {
             <div className="rounded-2xl border border-white/[0.08] overflow-hidden" style={{ background: "#0b1120" }}>
               <div className="h-[3px]" style={{ background: "linear-gradient(90deg, #06b6d4, #818cf8, #06b6d4)" }} />
 
-              {/* Profile */}
+
               <div className="px-6 pt-7 pb-6 text-center">
                 <ProfileAvatar />
                 <h1 className="text-[15px] font-bold text-white leading-snug tracking-tight mb-1">{personalInfo.name}</h1>
@@ -149,7 +139,7 @@ export default function ResumeContent() {
 
               <div className="h-px bg-white/[0.06] mx-6" />
 
-              {/* At a Glance */}
+
               <div className="px-6 py-5">
                 <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-700 mb-4">At a Glance</p>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-4">
@@ -168,7 +158,7 @@ export default function ResumeContent() {
 
               <div className="h-px bg-white/[0.06] mx-6" />
 
-              {/* Available For */}
+
               <div className="px-6 py-5">
                 <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-700 mb-3.5">Available For</p>
                 <div className="space-y-2.5">
@@ -188,7 +178,7 @@ export default function ResumeContent() {
 
               <div className="h-px bg-white/[0.06] mx-6" />
 
-              {/* Contact */}
+
               <div className="px-6 py-5">
                 <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-700 mb-3.5">Contact</p>
                 <div className="space-y-2.5">
@@ -209,12 +199,10 @@ export default function ResumeContent() {
             </div>
           </motion.aside>
 
-          {/* ====================================================
-              MAIN CONTENT
-          ==================================================== */}
+
           <main className="flex-1 min-w-0">
 
-            {/* Page header */}
+
             <motion.div {...fadeUp(0)} className="mb-12">
               <span className="eyebrow mb-3 block">Resume / CV</span>
               <h2 className="font-bold text-white tracking-tight mb-2"
@@ -224,7 +212,7 @@ export default function ResumeContent() {
               <p className="text-sm text-slate-500">AI Engineer, Data Scientist & Full Stack Developer · Remote</p>
             </motion.div>
 
-            {/* ── 1: Summary ──────────────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Professional Summary</SectionLabel>
               <div className="space-y-4">
@@ -236,7 +224,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 2: Currently Building ───────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Currently Building</SectionLabel>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -261,7 +249,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 3: Technical Skills ─────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Technical Skills</SectionLabel>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -289,11 +277,11 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 4: Featured Projects ────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Featured Projects</SectionLabel>
 
-              {/* Flagship 3 — expanded case-study cards */}
+
               <div className="space-y-5 mb-5">
                 {featuredProjectsResume.filter(p => p.isFlagship).map((p, i) => (
                   <motion.div key={p.name} {...fadeUp(i * 0.08)}
@@ -302,7 +290,7 @@ export default function ResumeContent() {
                     <div className="absolute top-0 inset-x-0 h-px"
                       style={{ background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.4), transparent)" }} />
                     <div className="p-6">
-                      {/* Header */}
+
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
                         <div className="flex items-center gap-3">
                           <div>
@@ -318,7 +306,7 @@ export default function ResumeContent() {
                           Case Study <ArrowRight size={12} />
                         </Link>
                       </div>
-                      {/* Challenge / Solution / Outcome */}
+
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
                         {[
                           { label: "Challenge", text: p.challenge, color: "#f97316" },
@@ -331,7 +319,7 @@ export default function ResumeContent() {
                           </div>
                         ))}
                       </div>
-                      {/* Tech */}
+
                       <div className="flex flex-wrap gap-1.5">
                         {p.tech.map(t => (
                           <span key={t} className="text-[10px] px-2 py-0.5 rounded bg-white/[0.05] text-slate-400 border border-white/[0.07]">{t}</span>
@@ -342,7 +330,7 @@ export default function ResumeContent() {
                 ))}
               </div>
 
-              {/* Smaller projects — compact grid */}
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {featuredProjectsResume.filter(p => !p.isFlagship).map((p, i) => (
                   <motion.div key={p.name} {...fadeUp(i * 0.06)}
@@ -375,7 +363,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 5: Experience ───────────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Experience</SectionLabel>
               <div className="space-y-5">
@@ -421,7 +409,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 6: Engineering Principles ───────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Engineering Principles</SectionLabel>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -448,7 +436,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 7: Education ────────────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Education</SectionLabel>
               <div className="flex flex-col gap-5">
@@ -480,7 +468,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 8: Certifications (compact) ─────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Certifications</SectionLabel>
               <div className="flex flex-col gap-2.5">
@@ -505,7 +493,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 9: GitHub & Open Source ─────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>GitHub & Open Source</SectionLabel>
               <div className="rounded-2xl border border-white/[0.07] overflow-hidden" style={{ background: "#0b1120" }}>
@@ -545,7 +533,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 10: Tech Ecosystem ──────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Technology Ecosystem</SectionLabel>
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -565,7 +553,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 11: Languages ───────────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)} className="mb-12">
               <SectionLabel>Languages</SectionLabel>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -581,7 +569,7 @@ export default function ResumeContent() {
 
             <Divider />
 
-            {/* ── 12: Interests ───────────────────────────────── */}
+
             <motion.section {...fadeUp(0.05)}>
               <SectionLabel>Interests</SectionLabel>
               <div className="flex flex-wrap gap-2">

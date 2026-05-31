@@ -96,7 +96,7 @@ export default function ServicesContent() {
           })}
         </div>
 
-        {/* CTA */}
+
         <div className="text-center glass rounded-2xl p-10">
           <h2 className="text-2xl font-bold text-white mb-3">
             Not sure what you need?

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
@@ -67,7 +67,7 @@ export default function AdminReviews() {
       const data = await res.json();
       setReviews(data.reviews ?? []);
     } catch {
-      // ignore
+
     } finally {
       setLoading(false);
     }
@@ -108,7 +108,6 @@ export default function AdminReviews() {
     }
   };
 
-  // Stats
   const pending = reviews.filter((r) => r.status === "pending").length;
   const approved = reviews.filter((r) => r.status === "approved").length;
   const rejected = reviews.filter((r) => r.status === "rejected").length;
@@ -129,7 +128,7 @@ export default function AdminReviews() {
 
   return (
     <div className="min-h-screen" style={{ background: "#060912" }}>
-      {/* Top bar */}
+
       <div
         className="border-b border-white/[0.06] px-6 py-4 flex items-center justify-between"
         style={{ background: "#0b1120" }}
@@ -159,7 +158,7 @@ export default function AdminReviews() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-8">
-        {/* Stats */}
+
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           {[
             { label: "Pending", value: pending, color: "text-amber-400" },
@@ -178,9 +177,9 @@ export default function AdminReviews() {
           ))}
         </div>
 
-        {/* Filters */}
+
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
-          {/* Status tabs */}
+
           <div className="flex gap-1 p-1 rounded-xl border border-white/[0.06]" style={{ background: "#0b1120" }}>
             {tabs.map((t) => (
               <button
@@ -197,7 +196,7 @@ export default function AdminReviews() {
             ))}
           </div>
 
-          {/* Search */}
+
           <div className="relative flex-1">
             <Search
               size={14}
@@ -220,7 +219,7 @@ export default function AdminReviews() {
           </button>
         </div>
 
-        {/* Reviews */}
+
         {loading ? (
           <div className="space-y-4">
             {[...Array(3)].map((_, i) => (
@@ -249,10 +248,10 @@ export default function AdminReviews() {
                   className="rounded-2xl border border-white/[0.07] p-5 transition-all hover:border-white/[0.12]"
                   style={{ background: "#0b1120" }}
                 >
-                  {/* Top row */}
+
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                     <div className="flex items-start gap-3">
-                      {/* Avatar */}
+
                       <div className="w-9 h-9 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center shrink-0 text-white text-xs font-bold">
                         {r.name
                           .split(" ")
@@ -312,7 +311,7 @@ export default function AdminReviews() {
                       </div>
                     </div>
 
-                    {/* Actions */}
+
                     <div className="flex items-center gap-1.5 shrink-0">
                       {r.status !== "approved" && (
                         <button
@@ -359,12 +358,12 @@ export default function AdminReviews() {
                     </div>
                   </div>
 
-                  {/* Feedback */}
+
                   <blockquote className="text-sm text-slate-400 leading-relaxed border-l-2 border-white/[0.08] pl-3">
                     &ldquo;{r.feedback}&rdquo;
                   </blockquote>
 
-                  {/* Permission warning */}
+
                   {!r.permission_to_publish && (
                     <p className="text-[10px] text-amber-500/60 mt-2">
                       No publish permission granted — will not appear publicly even if approved.

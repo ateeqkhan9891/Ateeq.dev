@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -28,7 +28,7 @@ export default function ProjectCard({
         featured ? "md:col-span-1" : ""
       )}
     >
-      {/* Image */}
+
       <div className="relative h-48 bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -51,7 +51,7 @@ export default function ProjectCard({
         )}
       </div>
 
-      {/* Content */}
+
       <div className="p-6">
         <div className="flex flex-wrap gap-1.5 mb-3">
           {project.category.slice(0, 2).map((cat) => (
@@ -69,7 +69,7 @@ export default function ProjectCard({
           {project.tagline}
         </p>
 
-        {/* Tech pills */}
+
         <div className="flex flex-wrap gap-1.5 mb-5">
           {project.tech.slice(0, 4).map((t) => (
             <span
@@ -86,7 +86,7 @@ export default function ProjectCard({
           )}
         </div>
 
-        {/* Links */}
+
         <div className="flex items-center gap-3">
           <Link
             href={`/projects/${project.slug}`}

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { updateById, deleteById, isSupabaseReady } from "@/lib/local-reviews";
 
 function isAdmin(req: NextRequest): boolean {
@@ -25,7 +25,7 @@ export async function PATCH(
   if (typeof body.featured === "boolean") updates.featured   = body.featured;
   if (body.admin_note !== undefined)     updates.admin_note = body.admin_note;
 
-  /* ── Supabase path ─────────────────────────────────────── */
+
   if (isSupabaseReady()) {
     const { supabaseAdmin } = await import("@/lib/supabase");
     const { error } = await supabaseAdmin
@@ -36,7 +36,7 @@ export async function PATCH(
     return NextResponse.json({ success: true });
   }
 
-  /* ── Local file path ───────────────────────────────────── */
+
   const ok = updateById(id, updates as Parameters<typeof updateById>[1]);
   if (!ok) return NextResponse.json({ error: "Review not found." }, { status: 404 });
   return NextResponse.json({ success: true });
@@ -51,7 +51,7 @@ export async function DELETE(
 
   const { id } = await params;
 
-  /* ── Supabase path ─────────────────────────────────────── */
+
   if (isSupabaseReady()) {
     const { supabaseAdmin } = await import("@/lib/supabase");
     const { error } = await supabaseAdmin.from("reviews").delete().eq("id", id);
@@ -59,7 +59,7 @@ export async function DELETE(
     return NextResponse.json({ success: true });
   }
 
-  /* ── Local file path ───────────────────────────────────── */
+
   const ok = deleteById(id);
   if (!ok) return NextResponse.json({ error: "Review not found." }, { status: 404 });
   return NextResponse.json({ success: true });

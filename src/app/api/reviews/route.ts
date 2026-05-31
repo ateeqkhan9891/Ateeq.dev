@@ -1,12 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 import { readAll, writeAll, isSupabaseReady } from "@/lib/local-reviews";
 import type { LocalReview } from "@/lib/local-reviews";
 
-/* ── Rate limiter ──────────────────────────────────────────── */
 const submissionCache = new Map<string, number>();
 
-/* ════════════════════════════════════════════════════════════ */
 export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for") ?? "unknown";
 
@@ -27,7 +25,7 @@ export async function POST(req: NextRequest) {
     project, rating, feedback, permission_to_publish,
   } = body as Record<string, string | number | boolean>;
 
-  /* Validation */
+
   if (!name || typeof name !== "string" || name.trim().length < 2)
     return NextResponse.json({ error: "Name must be at least 2 characters." }, { status: 400 });
   if (!role || typeof role !== "string" || role.trim().length < 2)
@@ -67,7 +65,7 @@ export async function POST(req: NextRequest) {
     approved_at:          null,
   };
 
-  /* Try Supabase first; fall back to local file */
+
   if (isSupabaseReady()) {
     const { supabaseAdmin } = await import("@/lib/supabase");
     const { error } = await supabaseAdmin.from("reviews").insert(reviewData);
@@ -98,7 +96,6 @@ export async function POST(req: NextRequest) {
   });
 }
 
-/* ── GET: public approved reviews ──────────────────────────── */
 export async function GET() {
   if (isSupabaseReady()) {
     const { supabasePublic } = await import("@/lib/supabase");
@@ -115,7 +112,7 @@ export async function GET() {
     return NextResponse.json({ reviews: data ?? [] });
   }
 
-  /* Local file fallback */
+
   const all = readAll();
   const approved = all
     .filter((r) => r.status === "approved" && r.permission_to_publish === true)

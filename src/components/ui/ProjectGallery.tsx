@@ -5,16 +5,14 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn, ImageOff } from "lucide-react";
 
-/* ── types ─────────────────────────────────────────────────────── */
 interface Props {
   cover?: string;
   screenshots?: string[];
   title: string;
-  accentColor: string; // e.g. "#8b5cf6"
-  accentGlow: string;  // e.g. "rgba(139,92,246,0.10)"
+  accentColor: string;
+  accentGlow: string;
 }
 
-/* ── inner: single image with fallback ─────────────────────────── */
 function ProjectImage({
   src,
   alt,
@@ -30,7 +28,7 @@ function ProjectImage({
 }) {
   const [error, setError] = useState(false);
 
-  if (error) return null; // let parent show placeholder
+  if (error) return null;
 
   return (
     <Image
@@ -45,7 +43,6 @@ function ProjectImage({
   );
 }
 
-/* ── placeholder tile shown when image is missing ──────────────── */
 function Placeholder({
   accent,
   glow,
@@ -68,7 +65,6 @@ function Placeholder({
   );
 }
 
-/* ── lightbox ───────────────────────────────────────────────────── */
 function Lightbox({
   images,
   index,
@@ -97,7 +93,6 @@ function Lightbox({
     return () => window.removeEventListener("keydown", handler);
   }, [hasPrev, hasNext, onClose, onPrev, onNext]);
 
-  // lock body scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
@@ -113,10 +108,10 @@ function Lightbox({
         className="fixed inset-0 z-[100] flex items-center justify-center"
         onClick={onClose}
       >
-        {/* Backdrop */}
+
         <div className="absolute inset-0 bg-[#060912]/95 backdrop-blur-xl" />
 
-        {/* Close */}
+
         <button
           onClick={onClose}
           className="absolute top-5 right-5 z-10 p-2.5 rounded-xl bg-white/[0.07] hover:bg-white/[0.12] border border-white/[0.1] text-slate-300 hover:text-white transition-all"
@@ -125,7 +120,7 @@ function Lightbox({
           <X size={18} />
         </button>
 
-        {/* Prev */}
+
         {hasPrev && (
           <button
             onClick={(e) => { e.stopPropagation(); onPrev(); }}
@@ -136,7 +131,7 @@ function Lightbox({
           </button>
         )}
 
-        {/* Next */}
+
         {hasNext && (
           <button
             onClick={(e) => { e.stopPropagation(); onNext(); }}
@@ -147,7 +142,7 @@ function Lightbox({
           </button>
         )}
 
-        {/* Image container */}
+
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 0.94, y: 12 }}
@@ -163,13 +158,13 @@ function Lightbox({
           </div>
         </motion.div>
 
-        {/* Dot indicators */}
+
         {images.length > 1 && (
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
             {images.map((_, i) => (
               <button
                 key={i}
-                onClick={(e) => { e.stopPropagation(); /* handled by parent */ }}
+                onClick={(e) => { e.stopPropagation();  }}
                 className={`rounded-full transition-all ${
                   i === index
                     ? "w-4 h-1.5 bg-cyan-400"
@@ -180,7 +175,7 @@ function Lightbox({
           </div>
         )}
 
-        {/* Counter */}
+
         <div className="absolute bottom-6 right-6 text-xs text-slate-600 z-10">
           {index + 1} / {images.length}
         </div>
@@ -189,14 +184,10 @@ function Lightbox({
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   MAIN COMPONENT
-═══════════════════════════════════════════════════════════════════ */
 export default function ProjectGallery({ cover, screenshots = [], title, accentColor, accentGlow }: Props) {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [coverError, setCoverError] = useState(false);
 
-  // All images: cover first, then screenshots
   const allImages = [
     ...(cover ? [cover] : []),
     ...screenshots,
@@ -212,10 +203,10 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
 
   return (
     <>
-      {/* ── Gallery layout ─────────────────────────────────── */}
+
       <div className="space-y-3">
 
-        {/* ── Browser mockup (cover image) ─────────────────── */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -224,19 +215,19 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
           className="group rounded-2xl overflow-hidden border border-white/[0.08] shadow-card"
           style={{ background: "#0a0f1a" }}
         >
-          {/* Browser chrome bar */}
+
           <div
             className="flex items-center gap-3 px-4 py-3 border-b border-white/[0.06]"
             style={{ background: "#0d1422" }}
           >
-            {/* Traffic lights */}
+
             <div className="flex items-center gap-1.5 shrink-0">
               <div className="w-3 h-3 rounded-full bg-red-500/70 hover:bg-red-500 transition-colors cursor-default" />
               <div className="w-3 h-3 rounded-full bg-amber-500/70 hover:bg-amber-500 transition-colors cursor-default" />
               <div className="w-3 h-3 rounded-full bg-emerald-500/70 hover:bg-emerald-500 transition-colors cursor-default" />
             </div>
 
-            {/* URL bar */}
+
             <div
               className="flex-1 max-w-md mx-auto h-6 rounded-md flex items-center px-3 gap-2"
               style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
@@ -247,7 +238,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
               </span>
             </div>
 
-            {/* Zoom hint */}
+
             {hasCover && (
               <button
                 onClick={() => openLightbox(0)}
@@ -259,7 +250,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
             )}
           </div>
 
-          {/* Screen area */}
+
           <div
             className="relative w-full cursor-pointer overflow-hidden"
             style={{ aspectRatio: "16/9" }}
@@ -274,7 +265,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
                   priority
                   className="transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                {/* Hover overlay */}
+
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 px-4 py-2 rounded-xl bg-black/60 backdrop-blur-sm border border-white/[0.1] text-white text-xs font-medium">
                     <ZoomIn size={13} /> View fullscreen
@@ -283,7 +274,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
               </>
             ) : (
               <>
-                {/* Placeholder skeleton UI */}
+
                 <div className="absolute inset-0 bg-[#070c18]" />
                 <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 70% 60% at 50% 30%, ${accentGlow} 0%, transparent 70%)` }} />
                 <div className="absolute inset-0 p-6 flex flex-col gap-3 opacity-50">
@@ -313,7 +304,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
           </div>
         </motion.div>
 
-        {/* ── Screenshot grid ───────────────────────────────── */}
+
         {hasScreenshots && (
           <div className={`grid gap-3 ${screenshots.length === 1 ? "grid-cols-1" : screenshots.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
             {screenshots.map((src, i) => {
@@ -337,7 +328,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
                     label={`Screenshot ${i + 1}`}
                   />
 
-                  {/* Hover overlay */}
+
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-250 flex items-center justify-center">
                     <ZoomIn
                       size={20}
@@ -345,7 +336,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
                     />
                   </div>
 
-                  {/* Accent border glow on hover */}
+
                   <div
                     className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                     style={{ boxShadow: `inset 0 0 0 1px ${accentColor}30` }}
@@ -356,7 +347,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
           </div>
         )}
 
-        {/* Image count badge */}
+
         {allImages.length > 0 && (
           <p className="text-[11px] text-slate-700 text-center pt-1">
             {allImages.length} screenshot{allImages.length !== 1 ? "s" : ""}, click to enlarge
@@ -364,7 +355,7 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
         )}
       </div>
 
-      {/* ── Lightbox ─────────────────────────────────────── */}
+
       {lightbox !== null && (
         <Lightbox
           images={allImages}
@@ -379,7 +370,6 @@ export default function ProjectGallery({ cover, screenshots = [], title, accentC
   );
 }
 
-/* ── Screenshot thumbnail with error handling ───────────────────── */
 function ScreenshotThumb({
   src, alt, accent, glow, label,
 }: {

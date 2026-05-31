@@ -1,7 +1,4 @@
-/**
- * File-based review storage — used when Supabase is not configured.
- * Reviews are stored in  data/pending-reviews.json  at the project root.
- */
+﻿
 
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";

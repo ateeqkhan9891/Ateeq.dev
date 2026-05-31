@@ -2,7 +2,6 @@
 import { Mail, ArrowUpRight, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
 
-/* ── WhatsApp SVG icon ─────────────────────────────────────────── */
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -11,7 +10,6 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
   );
 }
 
-/* ── Quick links ────────────────────────────────────────────────── */
 const NAV_LINKS = [
   { label: "Home",     href: "/"          },
   { label: "About",    href: "/about"     },
@@ -28,14 +26,13 @@ const SERVICE_LINKS = [
   { label: "Healthcare Websites",    href: "/services#healthcare-websites" },
 ];
 
-/* ═══════════════════════════════════════════════════════════════════ */
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-white/[0.06]" style={{ background: "#050810" }}>
 
-      {/* ── Top CTA strip ──────────────────────────────────────── */}
+
       <div className="border-b border-white/[0.05]" style={{ background: "rgba(6,182,212,0.025)" }}>
         <div className="wrap py-8 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div>
@@ -48,7 +45,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            {/* WhatsApp CTA, premium green */}
+
             <a
               href="https://wa.me/923367070686"
               target="_blank"
@@ -68,7 +65,7 @@ export default function Footer() {
               />
             </a>
 
-            {/* Email CTA */}
+
             <a
               href="mailto:ateeqrehmankhan0346@gmail.com"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] hover:border-white/[0.18] text-slate-300 hover:text-white font-semibold text-sm transition-all duration-200"
@@ -80,13 +77,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Main footer grid ───────────────────────────────────── */}
+
       <div className="wrap py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
-          {/* ── Brand column ──────────────────────────────────── */}
+
           <div className="sm:col-span-2 lg:col-span-1">
-            {/* Logo */}
+
             <div className="flex items-center gap-0.5 mb-4">
               <span className="text-xl font-bold text-white tracking-tight">Ateeq</span>
               <span className="text-xl font-bold text-cyan-400">.</span>
@@ -97,13 +94,13 @@ export default function Footer() {
               ML systems, and high-converting business websites.
             </p>
 
-            {/* Location */}
+
             <div className="flex items-center gap-2 text-xs text-slate-700 mb-5">
               <MapPin size={12} />
               Islamabad, Pakistan, Remote
             </div>
 
-            {/* Social icon row */}
+
             <div className="flex items-center gap-2">
               <a href="https://github.com/ateeqkhan9891"
                 target="_blank" rel="noopener noreferrer"
@@ -131,7 +128,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Quick Links ───────────────────────────────────── */}
+
           <div>
             <h4 className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600 mb-5">
               Quick Links
@@ -149,7 +146,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Services ──────────────────────────────────────── */}
+
           <div>
             <h4 className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600 mb-5">
               Services
@@ -167,13 +164,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Contact / Reach ───────────────────────────────── */}
+
           <div>
             <h4 className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600 mb-5">
               Reach Me
             </h4>
             <div className="space-y-3">
-              {/* GitHub */}
+
               <a href="https://github.com/ateeqkhan9891"
                 target="_blank" rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-slate-500 hover:text-slate-200 transition-colors">
@@ -183,7 +180,7 @@ export default function Footer() {
                 <span className="truncate">github.com</span>
               </a>
 
-              {/* LinkedIn */}
+
               <a href="https://www.linkedin.com/in/ateeq-rehman-a7698b26b/"
                 target="_blank" rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-slate-500 hover:text-blue-400 transition-colors">
@@ -193,7 +190,7 @@ export default function Footer() {
                 <span>LinkedIn Profile</span>
               </a>
 
-              {/* Email */}
+
               <a href="mailto:ateeqrehmankhan0346@gmail.com"
                 className="group flex items-center gap-3 text-sm text-slate-500 hover:text-cyan-400 transition-colors">
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center bg-white/[0.04] border border-white/[0.07] group-hover:border-cyan-400/30 transition-colors shrink-0">
@@ -202,7 +199,7 @@ export default function Footer() {
                 <span className="truncate">Send an email</span>
               </a>
 
-              {/* WhatsApp */}
+
               <a href="https://wa.me/923367070686"
                 target="_blank" rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-slate-500 hover:text-emerald-400 transition-colors">
@@ -215,7 +212,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Bottom bar ────────────────────────────────────── */}
+
         <div className="border-t border-white/[0.05] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-700">
             &copy; {year} Ateeq Rehman Wazir, All rights reserved.

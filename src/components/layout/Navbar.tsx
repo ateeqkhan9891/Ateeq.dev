@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -27,7 +27,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // close on nav
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
@@ -45,7 +44,7 @@ export default function Navbar() {
       >
         <div className="wrap flex items-center justify-between">
 
-          {/* Logo */}
+
           <Link href="/" className="flex items-center gap-0.5 group" aria-label="Home">
             <span className="text-lg font-bold text-white tracking-tight">Ateeq</span>
             <motion.span
@@ -57,7 +56,7 @@ export default function Navbar() {
             </motion.span>
           </Link>
 
-          {/* Desktop nav */}
+
           <nav className="hidden md:flex items-center">
             <ul className="flex items-center gap-1">
               {NAV.map((link) => {
@@ -88,7 +87,7 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Right actions */}
+
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
@@ -97,7 +96,7 @@ export default function Navbar() {
               Hire Me
             </Link>
 
-            {/* Mobile toggle */}
+
             <button
               onClick={() => setOpen((v) => !v)}
               className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
@@ -109,7 +108,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile menu */}
+
       <AnimatePresence>
         {open && (
           <motion.div

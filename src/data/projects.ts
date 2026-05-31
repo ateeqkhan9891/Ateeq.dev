@@ -13,11 +13,11 @@
   tech: string[];
   results: string[];
   lessons: string[];
-  /** Main cover image shown in project cards */
+
   image: string;
-  /** Hero screenshot (shown in browser mockup at top of detail page) */
+
   cover?: string;
-  /** Additional screenshots for the gallery grid */
+
   screenshots?: string[];
   liveUrl?: string;
   githubUrl?: string;

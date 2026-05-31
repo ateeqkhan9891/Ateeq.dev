@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default function ReviewCard({ review, index = 0 }: Props) {
-  // Generate initials from name
+
   const initials = review.name
     .split(" ")
     .map((n) => n[0])
@@ -28,7 +28,6 @@ export default function ReviewCard({ review, index = 0 }: Props) {
     .slice(0, 2)
     .toUpperCase();
 
-  // Generate consistent gradient from name
   const gradients = [
     "from-blue-500 to-cyan-500",
     "from-violet-500 to-purple-500",
@@ -46,24 +45,24 @@ export default function ReviewCard({ review, index = 0 }: Props) {
       transition={{ duration: 0.45, delay: index * 0.08 }}
       className="group relative flex flex-col rounded-2xl border border-white/[0.07] hover:border-white/[0.12] bg-[#0b1120] p-6 transition-all duration-300 hover:shadow-xl overflow-hidden"
     >
-      {/* Featured badge */}
+
       {review.featured && (
         <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider text-amber-400 border border-amber-400/20 bg-amber-400/10 px-2 py-0.5 rounded-full">
           Featured
         </div>
       )}
 
-      {/* Large decorative quote */}
+
       <div className="absolute top-3 right-8 text-6xl font-serif text-white/[0.025] select-none pointer-events-none leading-none">
         &ldquo;
       </div>
 
-      {/* Project tag */}
+
       <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-4">
         {review.project}
       </span>
 
-      {/* Stars */}
+
       <div className="flex items-center gap-0.5 mb-4">
         {[...Array(5)].map((_, i) => (
           <svg
@@ -77,12 +76,12 @@ export default function ReviewCard({ review, index = 0 }: Props) {
         <span className="text-xs text-slate-600 ml-1">{review.rating}.0</span>
       </div>
 
-      {/* Feedback */}
+
       <blockquote className="flex-1 text-sm text-slate-400 leading-relaxed mb-6">
         &ldquo;{review.feedback}&rdquo;
       </blockquote>
 
-      {/* Author */}
+
       <div className="flex items-center gap-3">
         <div
           className={`w-9 h-9 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0 text-white text-xs font-bold`}

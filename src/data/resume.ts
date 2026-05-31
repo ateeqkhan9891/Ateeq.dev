@@ -1,7 +1,4 @@
-/* ================================================================
-   RESUME DATA
-   Single source of truth for all resume page content.
-================================================================ */
+﻿
 
 export const personalInfo = {
   name:         "Ateeq Rehman Wazir",
@@ -16,7 +13,6 @@ export const personalInfo = {
   availability: "Open to Work",
 };
 
-/* ── Professional Summary ──────────────────────────────────── */
 export const summary = {
   headline: "AI Engineer, Data Scientist & Full Stack Developer",
   paragraphs: [
@@ -25,7 +21,6 @@ export const summary = {
   ],
 };
 
-/* ── Career Snapshot ───────────────────────────────────────── */
 export const careerSnapshot = [
   { value: "15+",  label: "Products Shipped",  sub: "AI, SaaS & web"     },
   { value: "3+",   label: "Live Client Sites",  sub: "Healthcare & biz"   },
@@ -33,7 +28,6 @@ export const careerSnapshot = [
   { value: "SaaS", label: "Built from Scratch", sub: "MyamiCV AI"          },
 ];
 
-/* ── Technical Skills (curated, 5 groups) ─────────────────── */
 export const skills = [
   {
     category: "AI & Machine Learning",
@@ -62,7 +56,6 @@ export const skills = [
   },
 ];
 
-/* ── Featured Projects (flagship mini case-studies) ──────── */
 export const featuredProjectsResume = [
   {
     name:      "MyamiCV AI",
@@ -138,7 +131,6 @@ export const featuredProjectsResume = [
   },
 ];
 
-/* ── Professional Experience ───────────────────────────────── */
 export const experience = [
   {
     role:     "AI & Full Stack Engineer",
@@ -160,7 +152,6 @@ export const experience = [
   },
 ];
 
-/* ── Education ─────────────────────────────────────────────── */
 export const education = [
   {
     degree:      "BS Data Science",
@@ -184,14 +175,12 @@ export const education = [
   },
 ];
 
-/* ── Certifications (top 3 only) ───────────────────────────── */
 export const certifications = [
   { name: "Machine Learning Specialization", issuer: "DeepLearning.AI",  year: "2023", link: "#" },
   { name: "Python for Data Science & AI",    issuer: "IBM / Coursera",   year: "2023", link: "#" },
   { name: "FastAPI — The Complete Course",   issuer: "Udemy",            year: "2023", link: "#" },
 ];
 
-/* ── Currently Building ────────────────────────────────────── */
 export const currentlyBuilding = [
   {
     name:    "MyamiCV AI",
@@ -216,7 +205,6 @@ export const currentlyBuilding = [
   },
 ];
 
-/* ── Engineering Principles ────────────────────────────────── */
 export const engineeringPrinciples = [
   { n: "01", title: "Build for real users",        desc: "Every feature traces back to a user outcome. Not a demo, not a portfolio piece." },
   { n: "02", title: "Ship, measure, improve",      desc: "Working software beats perfect plans. Early shipping creates early feedback." },
@@ -226,7 +214,6 @@ export const engineeringPrinciples = [
   { n: "06", title: "Security as a baseline",      desc: "Auth, input validation, least privilege. Security is not optional infrastructure." },
 ];
 
-/* ── Current Focus ─────────────────────────────────────────── */
 export const currentFocus = [
   { label: "Building",      value: "MyamiCV AI — AI SaaS platform" },
   { label: "Learning",      value: "LangChain, vector databases, RAG" },
@@ -234,7 +221,6 @@ export const currentFocus = [
   { label: "Available for", value: "Freelance, contracts, SaaS builds" },
 ];
 
-/* ── Tech Ecosystem ────────────────────────────────────────── */
 export const techEcosystem: Record<string, string[]> = {
   Languages:      ["Python", "TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
   Frameworks:     ["Next.js", "React", "FastAPI", "Tailwind CSS", "Framer Motion"],
@@ -244,14 +230,12 @@ export const techEcosystem: Record<string, string[]> = {
   "Dev Tools":    ["VS Code", "Postman", "Jupyter", "Figma"],
 };
 
-/* ── Languages ─────────────────────────────────────────────── */
 export const languages = [
   { lang: "English", level: "Professional Working Proficiency" },
   { lang: "Urdu",    level: "Native"                           },
   { lang: "Pashto",  level: "Native"                           },
 ];
 
-/* ── Interests ─────────────────────────────────────────────── */
 export const interests = [
   "Artificial Intelligence & LLMs",
   "SaaS Product Development",
@@ -261,7 +245,6 @@ export const interests = [
   "Open Source",
 ];
 
-/* ── Services ──────────────────────────────────────────────── */
 export const services = [
   "AI SaaS Development",
   "Machine Learning Models",

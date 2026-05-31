@@ -1,11 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import FeedbackButton from "@/components/reviews/FeedbackButton";
 
-/* ── Hardcoded featured reviews ────────────────────────────── */
 const FEATURED = [
   {
     id: "static-1",
@@ -42,7 +41,6 @@ const FEATURED = [
   },
 ];
 
-/* ── Dynamic approved review shape ────────────────────────── */
 interface DynamicReview {
   id: string;
   name: string;
@@ -53,7 +51,6 @@ interface DynamicReview {
   feedback: string;
 }
 
-/* ── Unified card shape ────────────────────────────────────── */
 interface Card {
   id: string;
   quote: string;
@@ -80,7 +77,6 @@ function toGradient(name: string) {
   return AVATAR_GRADIENTS[name.charCodeAt(0) % AVATAR_GRADIENTS.length];
 }
 
-/* ── Stars ─────────────────────────────────────────────────── */
 function Stars({ n }: { n: number }) {
   return (
     <div className="flex gap-0.5">
@@ -94,32 +90,31 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-/* ── Single review card ────────────────────────────────────── */
 function ReviewCard({ card }: { card: Card }) {
   return (
     <div className="flex flex-col h-full rounded-2xl border border-white/[0.08] bg-[#0b1120] p-7 relative overflow-hidden">
-      {/* Decorative quote */}
+
       <div className="absolute top-3 right-5 text-7xl font-serif leading-none select-none pointer-events-none"
         style={{ color: "rgba(255,255,255,0.025)" }}>
         &ldquo;
       </div>
 
-      {/* Domain tag */}
+
       <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-5">
         {card.domain}
       </span>
 
-      {/* Stars */}
+
       <div className="mb-4">
         <Stars n={card.rating} />
       </div>
 
-      {/* Quote */}
+
       <blockquote className="flex-1 text-sm text-slate-300 leading-[1.85] mb-7 font-light">
         &ldquo;{card.quote}&rdquo;
       </blockquote>
 
-      {/* Author */}
+
       <div className="flex items-center gap-3 pt-5 border-t border-white/[0.05]">
         <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${card.gradient} flex items-center justify-center shrink-0`}>
           <span className="text-xs font-bold text-white">{card.initials}</span>
@@ -133,21 +128,18 @@ function ReviewCard({ card }: { card: Card }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   CAROUSEL
-═══════════════════════════════════════════════════════════ */
 const SLIDE_DURATION = 5000;
 const TRANSITION = { duration: 0.45, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] };
 
 export default function Testimonials() {
   const [dynamic, setDynamic]   = useState<DynamicReview[]>([]);
   const [index, setIndex]       = useState(0);
-  const [dir, setDir]           = useState(1);           // 1 = forward, -1 = back
+  const [dir, setDir]           = useState(1);
   const [paused, setPaused]     = useState(false);
   const [perView, setPerView]   = useState(3);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  /* Fetch approved reviews */
+
   useEffect(() => {
     fetch("/api/reviews")
       .then((r) => r.json())
@@ -155,7 +147,7 @@ export default function Testimonials() {
       .catch(() => {});
   }, []);
 
-  /* Build unified card list */
+
   const featuredNames = new Set(FEATURED.map((f) => f.name.toLowerCase()));
   const dynamicCards: Card[] = dynamic
     .filter((r) => !featuredNames.has(r.name.toLowerCase()))
@@ -172,7 +164,7 @@ export default function Testimonials() {
 
   const cards: Card[] = [...FEATURED, ...dynamicCards];
 
-  /* Responsive perView */
+
   useEffect(() => {
     const update = () => {
       if (window.innerWidth < 768)       setPerView(1);
@@ -201,14 +193,14 @@ export default function Testimonials() {
     setIndex(i);
   };
 
-  /* Auto-advance */
+
   useEffect(() => {
     if (paused || cards.length <= perView) return;
     timerRef.current = setInterval(() => next(), SLIDE_DURATION);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [paused, next, cards.length, perView]);
 
-  /* Keyboard nav */
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft")  prev();
@@ -230,7 +222,7 @@ export default function Testimonials() {
     <section className="section border-t border-white/[0.05]">
       <div className="wrap">
 
-        {/* Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -250,7 +242,7 @@ export default function Testimonials() {
             </p>
           </div>
 
-          {/* Arrow controls */}
+
           <div className="flex items-center gap-2">
             <button
               onClick={prev}
@@ -271,7 +263,7 @@ export default function Testimonials() {
           </div>
         </motion.div>
 
-        {/* Carousel */}
+
         <div
           className="relative overflow-hidden"
           onMouseEnter={() => setPaused(true)}
@@ -296,7 +288,7 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* Dot indicators */}
+
         {cards.length > perView && (
           <div className="flex items-center justify-center gap-2 mt-8">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
@@ -315,7 +307,7 @@ export default function Testimonials() {
           </div>
         )}
 
-        {/* CTA */}
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

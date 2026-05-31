@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -40,7 +40,7 @@ export default function PublicReviews() {
   return (
     <section className="section border-t border-white/[0.05]">
       <div className="wrap">
-        {/* Header */}
+
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export default function PublicReviews() {
           <FeedbackButton variant="ghost" />
         </div>
 
-        {/* Grid */}
+
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
             {[...Array(3)].map((_, i) => (
@@ -101,7 +101,7 @@ export default function PublicReviews() {
           </div>
         )}
 
-        {/* Bottom CTA */}
+
         {reviews.length > 0 && (
           <div className="text-center">
             <p className="text-slate-600 text-sm mb-4">

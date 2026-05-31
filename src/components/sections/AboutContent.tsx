@@ -21,7 +21,6 @@ import {
   Activity,
 } from "lucide-react";
 
-/* ── Animation helper ──────────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
@@ -29,7 +28,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] },
 });
 
-/* ── What I Do ─────────────────────────────────────────────── */
 const CAPABILITIES = [
   {
     icon: Brain,
@@ -60,7 +58,6 @@ const CAPABILITIES = [
   },
 ];
 
-/* ── Engineering phases (not year-based) ──────────────────── */
 const PHASES = [
   {
     label: "Foundation",
@@ -92,7 +89,6 @@ const PHASES = [
   },
 ];
 
-/* ── Tech ecosystem ────────────────────────────────────────── */
 const TECH_GROUPS = [
   {
     category: "AI & Machine Learning",
@@ -126,7 +122,6 @@ const TECH_GROUPS = [
   },
 ];
 
-/* ── Current focus items ───────────────────────────────────── */
 const FOCUS_NOW = [
   {
     title: "MyamiCV AI",
@@ -154,7 +149,6 @@ const FOCUS_NOW = [
   },
 ];
 
-/* ── Engineering principles ────────────────────────────────── */
 const PRINCIPLES = [
   {
     icon: Users,
@@ -194,7 +188,6 @@ const PRINCIPLES = [
   },
 ];
 
-/* ── Profile photo with animated border ─────────────────────── */
 function AboutPhoto() {
   const [err, setErr] = useState(false);
   const W = 300, H = 400, R = 16, PERIM = 1420;
@@ -277,12 +270,11 @@ function AboutPhoto() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════ */
 export default function AboutContent() {
   return (
     <div className="pt-24">
 
-      {/* ── HERO ──────────────────────────────────────────────── */}
+
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-100" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyan-500/[0.04] blur-[120px]" />
@@ -311,7 +303,7 @@ export default function AboutContent() {
                 and how to measure whether it&apos;s working. That cross-domain thinking is where I add the most value.
               </p>
 
-              {/* Quick facts row */}
+
               <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
                 {[
                   { icon: MapPin, text: "Islamabad, PK · Remote" },
@@ -337,7 +329,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── WHAT I DO (3 capability cards) ────────────────────── */}
+
       <section className="py-16 border-t border-white/[0.05]" style={{ background: "#070c18" }}>
         <div className="wrap">
           <motion.div {...fadeUp()} className="mb-12">
@@ -383,7 +375,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── TECH ECOSYSTEM ────────────────────────────────────── */}
+
       <section className="py-16 border-t border-white/[0.05]">
         <div className="wrap">
           <motion.div {...fadeUp()} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
@@ -427,7 +419,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── ENGINEERING PHASES ────────────────────────────────── */}
+
       <section className="py-16 border-t border-white/[0.05]" style={{ background: "#070c18" }}>
         <div className="wrap">
           <motion.div {...fadeUp()} className="mb-12">
@@ -444,7 +436,7 @@ export default function AboutContent() {
                 className="rounded-2xl border border-white/[0.06] p-6 hover:border-white/[0.1] transition-colors group"
                 style={{ background: "#0b1120" }}
               >
-                {/* Phase label */}
+
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[10px] font-bold uppercase tracking-[0.15em]"
                     style={{ color: phase.accent }}>
@@ -457,7 +449,7 @@ export default function AboutContent() {
                     </span>
                   )}
                 </div>
-                {/* Accent line */}
+
                 <div className="w-8 h-0.5 rounded-full mb-4"
                   style={{ background: phase.accent }} />
                 <h3 className="text-sm font-bold text-white mb-3 leading-snug">{phase.title}</h3>
@@ -477,7 +469,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── CURRENT FOCUS ─────────────────────────────────────── */}
+
       <section className="py-16 border-t border-white/[0.05]">
         <div className="wrap">
           <motion.div {...fadeUp()} className="mb-12">
@@ -494,10 +486,10 @@ export default function AboutContent() {
                 className="rounded-2xl border border-white/[0.07] p-5 hover:border-white/[0.12] transition-all group relative overflow-hidden"
                 style={{ background: "#0b1120" }}
               >
-                {/* Top accent */}
+
                 <div className="absolute top-0 inset-x-0 h-px"
                   style={{ background: `linear-gradient(90deg, transparent, ${item.statusColor}50, transparent)` }} />
-                {/* Status + type */}
+
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">{item.type}</span>
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold"
@@ -522,7 +514,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── ENGINEERING PRINCIPLES ────────────────────────────── */}
+
       <section className="py-16 border-t border-white/[0.05]" style={{ background: "#070c18" }}>
         <div className="wrap">
           <motion.div {...fadeUp()} className="mb-12">
@@ -540,7 +532,7 @@ export default function AboutContent() {
                 <motion.div key={p.n} {...fadeUp(i * 0.06)}
                   className="group bg-[#070c18] hover:bg-[#0b1120] p-6 transition-colors duration-250 relative overflow-hidden"
                 >
-                  {/* Hover accent line */}
+
                   <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-cyan-500/0 via-cyan-500/40 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="flex items-start justify-between mb-4">
                     <span className="text-[10px] font-black font-mono tracking-widest text-slate-700 group-hover:text-cyan-500/50 transition-colors">
@@ -563,7 +555,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── WHY I BUILD ───────────────────────────────────────── */}
+
       <section className="py-16 border-t border-white/[0.05]">
         <div className="wrap">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-14 items-start">
@@ -596,7 +588,7 @@ export default function AboutContent() {
               </Link>
             </motion.div>
 
-            {/* Side callout card */}
+
             <motion.div {...fadeUp(0.12)}>
               <div className="rounded-2xl border border-white/[0.07] overflow-hidden"
                 style={{ background: "#0b1120" }}>

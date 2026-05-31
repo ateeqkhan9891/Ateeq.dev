@@ -1,10 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, AlertCircle, Star, MessageSquarePlus, Lock } from "lucide-react";
 
-/* ── Projects list ─────────────────────────────────────────── */
 const PROJECTS = [
   "MyamiCV AI",
   "Miami Aesthetic Care",
@@ -20,14 +19,12 @@ const PROJECTS = [
 const RATING_LABELS = ["", "Poor", "Fair", "Good", "Very Good", "Excellent"];
 const RATING_COLORS = ["", "#ef4444", "#f97316", "#eab308", "#22c55e", "#06b6d4"];
 
-/* ── Types ─────────────────────────────────────────────────── */
 interface Props {
   open: boolean;
   onClose: () => void;
 }
 type Status = "idle" | "submitting" | "success" | "error";
 
-/* ── Star rating component ─────────────────────────────────── */
 function StarPicker({
   value,
   onChange,
@@ -93,7 +90,6 @@ function StarPicker({
   );
 }
 
-/* ── Field wrapper ─────────────────────────────────────────── */
 function Field({
   label,
   required,
@@ -119,9 +115,6 @@ function Field({
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
-   MAIN MODAL
-══════════════════════════════════════════════════════════════ */
 export default function FeedbackModal({ open, onClose }: Props) {
   const [form, setForm] = useState({
     name: "",
@@ -211,10 +204,10 @@ export default function FeedbackModal({ open, onClose }: Props) {
           className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center sm:p-4"
           onClick={handleClose}
         >
-          {/* Backdrop */}
+
           <div className="absolute inset-0 bg-[#060912]/85 backdrop-blur-xl" />
 
-          {/* Modal card */}
+
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -224,9 +217,9 @@ export default function FeedbackModal({ open, onClose }: Props) {
             style={{ background: "#0b1120" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ── Decorative header ───────────────────────── */}
+
             <div className="relative overflow-hidden shrink-0">
-              {/* Gradient background */}
+
               <div
                 className="absolute inset-0"
                 style={{
@@ -237,12 +230,12 @@ export default function FeedbackModal({ open, onClose }: Props) {
               <div
                 className="absolute inset-0 bg-grid-pattern bg-grid opacity-30"
               />
-              {/* Top accent line */}
+
               <div className="h-[2px] bg-gradient-to-r from-cyan-500 via-violet-500 to-cyan-500" />
 
               <div className="relative px-6 pt-6 pb-5 flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  {/* Icon */}
+
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
                     style={{
@@ -271,13 +264,13 @@ export default function FeedbackModal({ open, onClose }: Props) {
               </div>
             </div>
 
-            {/* ── Scrollable body ─────────────────────────── */}
+
             <div
               className="flex-1 overflow-y-auto px-6 pb-6"
               style={{ scrollbarWidth: "none" }}
             >
 
-              {/* SUCCESS STATE */}
+
               {status === "success" ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -307,7 +300,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 pt-5">
 
-                  {/* Section: Identity */}
+
                   <div className="grid grid-cols-2 gap-3">
                     <Field label="Name" required>
                       <input
@@ -350,10 +343,10 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     </Field>
                   </div>
 
-                  {/* Divider */}
+
                   <div className="h-px bg-white/[0.05]" />
 
-                  {/* Project */}
+
                   <Field label="Project or Service" required>
                     <select
                       value={form.project}
@@ -368,7 +361,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     </select>
                   </Field>
 
-                  {/* Rating */}
+
                   <div className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-4">
                     <p className="text-xs font-semibold text-slate-400 mb-3">
                       Your Rating <span className="text-red-400">*</span>
@@ -376,7 +369,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     <StarPicker value={form.rating} onChange={(v) => set("rating", v)} />
                   </div>
 
-                  {/* Feedback */}
+
                   <Field label="Your Feedback" required>
                     <textarea
                       value={form.feedback}
@@ -385,7 +378,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                       rows={4}
                       className={`${inputCls} resize-none leading-relaxed`}
                     />
-                    {/* Progress bar + counter */}
+
                     <div className="flex items-center justify-between mt-2 gap-3">
                       <div className="flex-1 h-0.5 rounded-full bg-white/[0.06] overflow-hidden">
                         <div
@@ -404,7 +397,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     </div>
                   </Field>
 
-                  {/* LinkedIn (optional, compact) */}
+
                   <Field label="LinkedIn Profile" optional>
                     <input
                       type="url"
@@ -415,7 +408,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     />
                   </Field>
 
-                  {/* Permission */}
+
                   <label
                     htmlFor="permission"
                     className="flex items-start gap-3.5 p-4 rounded-xl border cursor-pointer transition-all group"
@@ -428,7 +421,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                         : "rgba(255,255,255,0.02)",
                     }}
                   >
-                    {/* Custom checkbox */}
+
                     <div
                       className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-0.5 transition-all duration-200"
                       style={{
@@ -476,7 +469,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     </div>
                   </label>
 
-                  {/* Error */}
+
                   <AnimatePresence>
                     {errorMsg && (
                       <motion.div
@@ -491,7 +484,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     )}
                   </AnimatePresence>
 
-                  {/* Submit */}
+
                   <button
                     type="submit"
                     disabled={status === "submitting"}
@@ -516,7 +509,7 @@ export default function FeedbackModal({ open, onClose }: Props) {
                     )}
                   </button>
 
-                  {/* Security note */}
+
                   <div className="flex items-center justify-center gap-1.5">
                     <Lock size={10} className="text-slate-700" />
                     <p className="text-[10px] text-slate-700">

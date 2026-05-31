@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -28,24 +28,24 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group relative bg-[#0b1120] flex flex-col items-center justify-center py-10 px-6 hover:bg-[#0f1829] transition-colors duration-300 overflow-hidden"
             >
-              {/* Top accent line on hover */}
+
               <div
                 className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${s.color} opacity-0 group-hover:opacity-100 transition-opacity duration-400`}
               />
 
-              {/* Value */}
+
               <div
                 className={`text-4xl lg:text-[2.75rem] font-bold tracking-tight mb-2 bg-gradient-to-br ${s.color} bg-clip-text text-transparent`}
               >
                 {s.value}
               </div>
 
-              {/* Label */}
+
               <div className="text-sm font-semibold text-slate-200 mb-1 text-center leading-snug">
                 {s.label}
               </div>
 
-              {/* Sub */}
+
               <div className="text-xs text-slate-600 text-center">
                 {s.desc}
               </div>
