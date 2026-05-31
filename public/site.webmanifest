@@ -1,0 +1,12 @@
+{
+  "name": "Ateeq Rehman Wazir — AI Engineer & Full Stack Developer",
+  "short_name": "Ateeq Wazir",
+  "description": "Portfolio of Ateeq Rehman Wazir — Data Scientist, AI Engineer, and Full Stack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060912",
+  "theme_color": "#06b6d4",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

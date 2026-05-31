@@ -1,0 +1,51 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# build outputs
+.next/
+out/
+dist/
+build/
+
+# environment files - NEVER commit these
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# testing
+coverage/
+
+# data files (local review storage - not for version control)
+data/pending-reviews.json
+
+# misc
+.vercel
