@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Download, ArrowRight, Star, Check, MapPin } from "lucide-react";
 import Image from "next/image";
 import { IMAGES, ALT } from "@/lib/images";
+import Signature from "@/components/ui/Signature";
 
 const AVATARS = [
   { initials: "DK", from: "#0891b2", to: "#2563eb",  label: "Dr Karamat"   },
@@ -210,6 +211,7 @@ export default function Hero() {
               <span className="text-slate-400 font-semibold">Actually Work.</span>
             </motion.h1>
 
+            <Signature className="mb-6" />
 
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
@@ -389,49 +391,49 @@ export default function Hero() {
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
                 />
               ))}
+
+              {/* Badge: Available — top-right corner of image */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                className="float-c absolute right-4 top-6 glass rounded-xl border border-white/[0.15] px-3.5 py-2.5 z-30"
+                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)" }}
+              >
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="text-sm font-bold text-white">Available</span>
+                </div>
+                <div className="text-[10px] text-slate-400">Open to work · 2025</div>
+              </motion.div>
+
+              {/* Badge: Projects — left side, middle */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.05 }}
+                className="float-b absolute left-4 top-[42%] glass rounded-xl border border-white/[0.15] px-3.5 py-2.5 z-30"
+                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)" }}
+              >
+                <div className="text-2xl font-black text-white leading-none mb-0.5">15+</div>
+                <div className="text-[10px] text-slate-400">Projects shipped</div>
+              </motion.div>
+
+              {/* Badge: Rating — bottom center */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+                className="float-a absolute left-1/2 -translate-x-1/2 bottom-6 glass rounded-xl border border-white/[0.15] px-4 py-2.5 flex items-center gap-2.5 z-30"
+                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)" }}
+              >
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={11} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <span className="text-xs font-semibold text-white">5.0</span>
+                <span className="text-[10px] text-slate-400">· 30+ reviews</span>
+              </motion.div>
+
             </div>
-
-
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              className="float-c absolute -right-6 top-14 glass rounded-xl border border-white/[0.12] px-4 py-3"
-              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}
-            >
-              <div className="flex items-center gap-2 mb-0.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                <span className="text-sm font-bold text-white">Available</span>
-              </div>
-              <div className="text-[10px] text-slate-500">Open to work · 2025</div>
-            </motion.div>
-
-
-            <motion.div
-              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1.05 }}
-              className="float-b absolute -left-6 top-[38%] glass rounded-xl border border-white/[0.12] px-4 py-3"
-              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}
-            >
-              <div className="text-2xl font-black text-white leading-none mb-0.5">15+</div>
-              <div className="text-[10px] text-slate-500">Projects shipped</div>
-            </motion.div>
-
-
-            <motion.div
-              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              className="float-a absolute left-1/2 -translate-x-1/2 bottom-8 glass rounded-xl border border-white/[0.12] px-4 py-2.5 flex items-center gap-2.5"
-              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}
-            >
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={11} className="fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="text-xs font-semibold text-white">5.0</span>
-              <span className="text-[10px] text-slate-500">· 30+ reviews</span>
-            </motion.div>
 
           </motion.div>
 

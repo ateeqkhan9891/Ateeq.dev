@@ -1,11 +1,18 @@
 ﻿import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmartFeedbackTrigger from "@/components/reviews/SmartTrigger";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-signature",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ateeqrehman.dev"),
@@ -76,7 +83,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} text-slate-100 antialiased`}
+        className={`${inter.className} ${dancingScript.variable} text-slate-100 antialiased`}
         style={{ background: "#060912" }}
       >
         <Navbar />
